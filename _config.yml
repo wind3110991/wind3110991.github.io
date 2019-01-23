@@ -1,1 +1,2 @@
-baseurl: /wind_blog
+markdown: rdiscount
+pygments: true
