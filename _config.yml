@@ -4,13 +4,13 @@ email: windisbest@gmail.com
 description: "在此，与你分享我的一些简单想法."
 baseurl: ""
 url: "http://http://windblog.cn"
-title_description: "我相信，人生总是复杂的，但是你的生活却能变得简单。生活与编码，都需要多一些减法，少一些加法。"
+title_description: "我相信，人生总是复杂的，但是你的生活却能变得简单。<br/>生活与编码，你我都需要多一些减法，少一些加法。"
 title_image: "https://avatars2.githubusercontent.com/u/5955704?s=460&v=4"
 google_analytics: "UA-20365477-4"
 disqus_account: cartenoire
 github_repository: https://github.com/wind3110991
 addthis_id: ra-513c6fa83da6ec67
-post_limit: 5
+post_limit: 10
 
 # Social usernames/URLs
 twitter_username: windisbest
@@ -24,7 +24,7 @@ xing_link:
 facebook_link:
 
 # Footer
-footer_left: "share me with your <i class=\"fa fa-heart\"></i> <a href=\"https://twitter.com/windisbest\">Wind Young</a>"
+footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://twitter.com/windisbest\">Wind Young</a>"
 footer_right: "&lt;/&gt; on <a href=\"https://github.com/wind3110991\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
