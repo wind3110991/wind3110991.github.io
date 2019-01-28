@@ -7,15 +7,23 @@ layout: default
 
     <h1 class="header author-header">一个烦躁的后台程序员</h1>
 
+    <ul class="nav nav-list"><li class="divider"></li></ul>
+
     <div id="me-container">
       
+           <div class="author-desc">
+                {{ site.author_description }}
+            </div>
+
             <div class="gravatar">
                 <img src="{{ site.title_image }}" class="img-circle about-image" height="150" width="150" alt="{{ site.title }}" />
             </div>
 
-           <div class="author-desc">
-                {{ site.author_description }}
+              <div class="gravatar">
+                <img src="{{ site.title_image }}" class="img-circle about-image" height="150" width="150" alt="{{ site.title }}" />
             </div>
+
+
 
            <div class="contact-me">
                 {{ site.contact_link }}
