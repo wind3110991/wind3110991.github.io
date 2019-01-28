@@ -6,6 +6,8 @@ baseurl: ""
 url: "http://http://windblog.cn"
 title_description: "我相信，人生总是复杂的，但是你的生活却能变得简单。<br/>生活与编码，你我都需要多一些减法，少一些加法。"
 title_image: "https://avatars2.githubusercontent.com/u/5955704?s=460&v=4"
+author_description: "测试一下啊哈哈"
+contact_link: "欢迎用下面的社交方式联系我"
 google_analytics: "UA-20365477-4"
 disqus_account: cartenoire
 github_repository: https://github.com/wind3110991
@@ -19,13 +21,13 @@ instagram_username: windisbest
 v2ex_username: wind3110991
 weibo_username: 2949530701
 linkedin_link: 
-google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
+google_plus_link: https://plus.google.com/109729077083994627920
 stackoverflow_link: 
 xing_link:
-facebook_link:
+facebook_link: windisbest
 
 # Footer
-footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://twitter.com/windisbest\">Wind Young</a>"
+footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://weibo.com/u/2949530701\">Wind Young</a>"
 footer_right: "&lt;/&gt; on <a href=\"https://github.com/wind3110991\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
