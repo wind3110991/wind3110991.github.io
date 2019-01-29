@@ -1,0 +1,42 @@
+# Site settings
+title: "wind blog"
+email: windisbest@gmail.com
+description: "在此，与你分享我的一些简单想法."
+baseurl: ""
+url: "http://http://windblog.cn"
+title_description: "我相信，人生总是复杂的，但是你的生活却能变得简单。<br/>生活与编码，你我都需要多一些减法，少一些加法。"
+title_image: "https://avatars2.githubusercontent.com/u/5955704?s=460&v=4"
+person_image: "http://ww1.sinaimg.cn/large/afce444dgy1fznh5twl3gj20gq0g6tt9.jpg"
+author_description1: "wind，男，芳龄25"
+author_description2: "现居深圳，鹅肠搬砖工，后台开发"
+author_description3: "指弹家，球王宇，日漫迷，极简控"
+contact_link: "欢迎你，用下面的社交方式骚扰我"
+google_analytics: "UA-20365477-4"
+github_repository: https://github.com/wind3110991
+post_limit: 10
+
+# Social usernames/URLs
+twitter_username:
+github_username: wind3110991
+instagram_username: windisbest
+v2ex_username: wind3110991
+weibo_username: 2949530701
+linkedin_link: 
+google_plus_link: https://plus.google.com/109729077083994627920
+stackoverflow_link: 
+xing_link:
+facebook_link: windisbest
+
+# Footer
+footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://weibo.com/u/2949530701\">Wind Young</a>"
+footer_right: "&lt;/&gt; on <a href=\"https://github.com/wind3110991\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+exclude: [vendor]
