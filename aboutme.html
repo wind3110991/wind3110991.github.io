@@ -9,18 +9,27 @@ layout: default
    
 
     <div id="me-container">
-
-        <h2 class="header author-header">一个平凡的后台工程师</h2>
-        <br/><br/><br/>
       
             <div class="gravatar">
-                <img src="{{ site.title_image }}" class="img-circle about-image" height="150" width="150" alt="{{ site.title }}" />
+                <img src="{{ site.person_image }}" class="img-circle about-image" height="150" width="150" alt="{{ site.title }}" />
             </div>
       
-           <div class="author-desc">
-                {{ site.author_description }}
+           <div class="author-text">
+                {{ site.author_description1 }}
             </div>
 
+           <div class="author-text">
+                {{ site.author_description2 }}
+            </div>
+            <div class="author-text">
+                {{ site.author_description3 }}
+            </div>
+
+            <br/>
+
+           <div class="author-email">
+               e-mail: {{ site.email }}
+            </div>
 
            <div class="contact-me">
                 {{ site.contact_link }}

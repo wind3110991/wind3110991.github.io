@@ -6,12 +6,13 @@ baseurl: ""
 url: "http://http://windblog.cn"
 title_description: "我相信，人生总是复杂的，但是你的生活却能变得简单。<br/>生活与编码，你我都需要多一些减法，少一些加法。"
 title_image: "https://avatars2.githubusercontent.com/u/5955704?s=460&v=4"
-author_description: "测试一下啊哈哈"
-contact_link: "欢迎用下面的社交方式联系我"
+person_image: "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/p160x160/50800530_2058394127791606_671478545721065472_n.jpg?_nc_cat=105&_nc_ht=scontent-hkg3-1.xx&oh=b6197eb2abd164a6cfd6408618103afc&oe=5CEF9AD2"
+author_description1: "wind, 男，芳龄25"
+author_description2: "现居深圳，鹅肠搬砖工，后台开发"
+author_description3: "指弹家，球王宇，日漫迷，极简控"
+contact_link: "欢迎你，用下面的社交方式骚扰我"
 google_analytics: "UA-20365477-4"
-disqus_account: cartenoire
 github_repository: https://github.com/wind3110991
-addthis_id: ra-513c6fa83da6ec67
 post_limit: 10
 
 # Social usernames/URLs
