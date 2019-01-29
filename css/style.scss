@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
 
- /* Colours */
+/* Colours */
 $twitter:        #6dabda;
 $linkedin:       #2b77b1;
 $xing:           #006567;
@@ -16,7 +16,7 @@ $instagram:      #cd486b;
 $reddit:         #cee3f8;
 $rss:            #eea33a;
 
- $darker:         #21211E;
+$darker:         #21211E;
 $dark:           #2D2D29;
 $medium:         #3B3B35;
 $light-medium:   #969696;
@@ -31,19 +31,19 @@ $regular-purple: #601848;
 $red:            #C04848;
 $orange:         #F07241;
 
- /* Responsive sizes */
+/* Responsive sizes */
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
- /* Globals */
+/* Globals */
 
- html {
+html {
 	height: 100%;
 	overflow-x: hidden;
 }
 
- body {
+body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	background-color: $dark;
@@ -53,64 +53,64 @@ $screen-lg-min: 1200px;
 	width: 100%
 }
 
- a, a:active {
+a, a:active {
 	color: $light-blue;
 	text-decoration: none;
 }
 
- a:hover {
+a:hover {
 	color: $dark-blue;
 	text-decoration: none;
 }
 
- ul {
+ul {
     list-style-type: none;
 }
 
- .navbar, .nav {
+.navbar, .nav {
 	background-color: $dark-blue;
 
- 	.navbar-toggle {
+	.navbar-toggle {
 		margin-top: 10px;
 		padding-top: 0px;
 		padding-bottom: 20px;
 	}
 
- 	li {
+	li {
 
- 		a, a:active {
+		a, a:active {
 			color: $white;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $dark-blue;
 			text-decoration: none;
 		}
 	}
 }
 
- .clearfix:after {
+.clearfix:after {
    content: " ";
    display: block;
    height: 0;
    clear: both;
 }
 
- .header {
+.header {
 	font-size: 32px;
 	text-align: center;
 	margin-top: 20px;
 	margin-left: -0%;
 	width: 100%;
 
- 	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm-min) {
 		font-size: 62px;
 		margin-left: -10%;
 		width: 120%;
 	}
 }
 
- .menu-button {
+.menu-button {
 	color: $white;
 	font-size: 24px;
 	position: fixed;
@@ -127,7 +127,7 @@ $screen-lg-min: 1200px;
 	}
 }
 
- .content-panel {
+.content-panel {
 	background-color: $medium;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -138,142 +138,142 @@ $screen-lg-min: 1200px;
 	border-bottom: 5px solid $light-blue;
 }
 
- #my-menu {
+#my-menu {
 
- 	p {
+	p {
 		margin-bottom: 5px;
 	}
 
- 	a, a:active {
+	a, a:active {
 		color: $white;
 	}
 
- 	a:hover {
+	a:hover {
 		color: $light-blue;
 	}
 
- 	.pages {
+	.pages {
 
- 		.fa {
+		.fa {
 			margin-right: 10px;
 		}
 	}
 }
 
- .links {
+.links {
 	margin-top: 50px;
 	text-align: center;
 
- 	i {
+	i {
 		padding-left: 5px;
 		padding-right: 5px;
 
- 		@media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			padding-left: 10px;
 			padding-right: 10px;
 		}
 	}
 
- 	.fa {
+	.fa {
 		-webkit-transition: 0.3s;
 		-moz-transition: 0.3s;
 		transition: 0.3s;
 	}
 
- 	.fa-twitter:hover {
+	.fa-twitter:hover {
 		color: $twitter;
 	}
 
- 	.fa-linkedin:hover {
+	.fa-linkedin:hover {
 		color: $linkedin;
 	}
-
- 	.fa-xing:hover {
+	
+	.fa-xing:hover {
 		color: $xing;
 	}
 
- 	.fa-google-plus:hover {
+	.fa-google-plus:hover {
 		color: $google-plus;
 	}
-
- 	.fa-facebook:hover {
+	
+	.fa-facebook:hover {
 		color: $facebook;
 	}
 
- 	.fa-github-alt:hover {
+	.fa-github-alt:hover {
 		color: $github;
 	}
 
- 	.fa-stack-overflow:hover {
+	.fa-stack-overflow:hover {
 		color: $stack-overflow;
 	}
-
- 	.fa-instagram:hover {
+	
+	.fa-instagram:hover {
 		color: $instagram;
 	}
-
- 	.fa-reddit-alien:hover {
+	
+	.fa-reddit-alien:hover {
 		color: $reddit;
 	}
-
- 	.fa-rss:hover {
+	
+	.fa-rss:hover {
 		color: $rss;
 	}
 }
 
- /* Index */
+/* Index */
 
- .index {
+.index {
 	height: 100%;
 	max-height: 100%;
 	width: 100%;
 	padding: 0px;
 
- 	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm-min) {
 		width: 700px;
 		max-width:700px;
 	}
 
- 	.header {
+	.header {
 		margin-top: 10px;
 		margin-left: 0%;
 		margin-bottom: 0px;
 		font-size: 32px;
 		width: 100%;
 
- 		@media (min-width: $screen-lg-min) {
+		@media (min-width: $screen-lg-min) {
 			margin-left: -10%;
 			width: 120%;
 		}
 	}
 
- 	.categories {
+	.categories {
 		font-size: 22px;
 	}
 
- 	.content-panel:nth-of-type(1) {
+	.content-panel:nth-of-type(1) {
 		border-bottom: 10px solid $light-blue;
 	}
 
- 	.author-header {
+	.author-header {
 		font-family: 'Montserrat', sans-serif;
 		color: $light-blue;
 		margin-top: 0px;
 		padding-top: 15px;
 		font-size: 30px;
 
- 		@media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			font-size: 52px;
 			margin-top: 0px;
 		}
 
- 		@media (min-width: $screen-md-min) {
+		@media (min-width: $screen-md-min) {
 			font-size: 60px;
 			margin-top: -20px;
 		}
 	}
 
- 	.row {
+	.row {
 		height: 100%;
 		max-height: 100%;
 		margin-top: 60px;
@@ -281,106 +281,106 @@ $screen-lg-min: 1200px;
 		margin-right: 0px;
 	}
 
- 	.gravatar {
+	.gravatar {
 		width: 100%;
 		margin-top: -80px;
 		text-align: center;
 	}
 
- 	.author-text {
+	.author-text {
 		text-align: center;
 		margin-top: 30px;
 
- 		b {
+		b {
 			font-size: 32px;
 		}
 	}
 
- 	.links {
+	.links {
 		font-size: 2em;
 	}
 
- 	.articles {
+	.articles {
 		text-align: center;
 		font-size: 20px;
 
- 		h2 {
+		h2 {
 			margin-bottom: 30px;
 			color: $light-blue;
 			font-size: 26px;
 		}
 
- 		ul {
+		ul {
 
- 			padding: 0px;
+			padding: 0px;
 
- 			li {
+			li {
 				margin-bottom: 20px;
 				font-size: 24px;
 
- 				a:hover {
+				a:hover {
 					color: $light-medium;
 				}
 
- 				small {
+				small {
 					font-size: 14px;
 					margin-top: -10px;
 					padding-top: 0px;
 					color: $light-medium;
 				}
 
- 			}
+			}
 
- 			li:nth-last-of-type(1) {
+			li:nth-last-of-type(1) {
 
- 				small {
+				small {
 					font-size: 16px;
 				}
 
- 			}
+			}
 		}
 
- 		a, a:active {
+		a, a:active {
 			color: $white;
 			white-space: nowrap;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $light-blue;
 		}
 	}
 
- 	.copyright {
+	.copyright {
 		margin-top: 50px;
 		text-align: center;
 	}
 
- 	.links {
+	.links {
 		a, a:active {
 			color: #FFFFFF;
 		}
 	}
 
- 	.menu {
+	.menu {
 		margin-top: 250px;
 		margin-bottom: 20px;
 		font-size: 20px;
 		position: absolute;
 		bottom: 0px;
 
- 		a, a:active {
+		a, a:active {
 			color: #FFFFFF;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $light-blue;
 		}
 
- 		ul {
+		ul {
 			margin-bottom: 30px;
 			padding-left: 10px;
 
- 			ul {
+			ul {
 				padding-left: 50px;
 				list-style: none;
 				margin-left: 0;
@@ -389,49 +389,49 @@ $screen-lg-min: 1200px;
 		}
 	}
 
- }
+}
 
- .all-posts {
+.all-posts {
 	margin-left: 0px;
 	margin-right: 0px;
 
- 	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm-min) {
 		#search-container {
 			padding-top: 75px;
 			padding-bottom: 150px;
 		}
 	}
 
- 	@media (min-width: $screen-md-min) {
+	@media (min-width: $screen-md-min) {
 		margin-left: -15px;
 		margin-right: -15px;
 
- 		#search-container {
+		#search-container {
 			padding-bottom: 300px;
 		}
 	}
 
- 	#search-input {
+	#search-input {
 		position:relative;
 		width: 100%;
 		padding:6px 15px 6px 30px;
 		margin: 2px;
 		margin-top: 50px;
 
- 		color:$dark;
+		color:$dark;
 		background-color:$white;
 
- 		border:1px solid #adc5cf;
+		border:1px solid #adc5cf;
 		border-radius:15px;
 		-moz-border-radius:15px;
 		-webkit-border-radius:15px;
 	}
 
- 	#search-input:focus {
+	#search-input:focus {
 		border: none;
   }
 
- 	.content-panel {
+	.content-panel {
 		padding-left: 10px;
 		padding-right: 10px;
 		@media (min-width: $screen-md-min) {
@@ -442,65 +442,65 @@ $screen-lg-min: 1200px;
 }
 
 
- .single {
+.single {
 	height:100%;
 	max-height: 100%;
 
- 	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Montserrat', sans-serif;
 		margin-bottom: 10px;
 	}
 
- 	h2 {
+	h2 {
 		font-size: 36px;
 	}
 
- 	h3 {
+	h3 {
 		font-size: 28px;
 	}
 
- 	p {
+	p {
 		margin-bottom: 10px;
 
- 		@media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			margin-bottom: 40px;
 		}
 	}
 
- 	.menu {
+	.menu {
 
- 		background-color: $dark-blue;
+		background-color: $dark-blue;
 
- 		a, a:active {
+		a, a:active {
 			color: $white;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $light-blue;
 		}
 
- 		h4 {
+		h4 {
 			margin-top: 20px;
 		}
 
- 		.share {
+		.share {
 			margin-top: 20px;
 
- 			h4 {
+			h4 {
 				margin-bottom: 10px;
 			}
 		}
 
- 		.home {
+		.home {
 			margin-top: 10px;
 			font-size: 16px;
 
- 			a {
+			a {
 				color: $white;
 			}
 		}
 
- 		.related {
+		.related {
 			ul {
 				padding: 0px;
 			}
@@ -510,32 +510,32 @@ $screen-lg-min: 1200px;
 		}
 	}
 
- 	.article {
+	.article {
 		width: 100%;
 		margin-left: 0%;
 		padding: 0px;
 
- 		@media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			width: 90%;
 			margin-left: 5%;
 		}
 
- 		@media (min-width: $screen-md-min) {
+		@media (min-width: $screen-md-min) {
 			width: 70%;
 			margin-left: 15%;
 		}
 
- 		@media (min-width: $screen-lg-min) {
+		@media (min-width: $screen-lg-min) {
 			width: 50%;
 			margin-left: 25%;
 		}
 
- 		.thumb {
+		.thumb {
 			margin-top: 20px;
 			margin-bottom: 0px;
 			text-align: center;
 
- 			img {
+			img {
 				height: 50px;
 				@media (min-width: $screen-sm-min) {
 					height: 70px;
@@ -543,13 +543,13 @@ $screen-lg-min: 1200px;
 			}
 		}
 
- 		.author {
+		.author {
 			font-size: 20px;
 			text-align: center;
 			margin-bottom: 0px;
 		}
 
- 		.read-time {
+		.read-time {
 			font-size: 16px;
 			text-align: center;
 			margin-bottom: 10px;
@@ -559,7 +559,7 @@ $screen-lg-min: 1200px;
 			}
 		}
 
- 		.content {
+		.content {
 			font-size: 18px;
 			line-height: 170%;
 			padding-left: 15px;
@@ -567,7 +567,7 @@ $screen-lg-min: 1200px;
 			padding-top: 10px;
 			padding-bottom: 10px;
 
- 			@media (min-width: $screen-sm-min) {
+			@media (min-width: $screen-sm-min) {
 				font-size: 24px;
 				padding-left: 30px;
 				padding-right: 30px;
@@ -575,11 +575,11 @@ $screen-lg-min: 1200px;
 				padding-bottom: 20px;
 			}
 
- 			.series {
+			.series {
 				margin-bottom: 50px;
 			}
 
- 			img {
+			img {
 				max-width: 100%;
 				padding: 10px;
     		display: block;
@@ -587,15 +587,15 @@ $screen-lg-min: 1200px;
     		margin-right: auto
 			}
 
- 			ul {
+			ul {
 				list-style-type: disc;
 			}
 
-             		ol {
+            		ol {
 				list-style-type: decimal;
 			}
 
- 			blockquote {
+			blockquote {
 				position: relative;
 				width: 100%;
 		    margin-left: -15px;
@@ -606,19 +606,19 @@ $screen-lg-min: 1200px;
 				border: none;
 				font-size: 28px;
 
- 				@media (min-width: $screen-sm-min) {
+				@media (min-width: $screen-sm-min) {
 					margin-left: -30px;
 					padding-left: 45px;
 					padding-right: 15px;
 				}
 
- 				p {
+				p {
 			    margin: 0;
 			    padding: 15px;
 					z-index: 0;
 				}
 
- 				:before {
+				:before {
     			font-family: "Times New Roman";
 					color: $light-medium;
 			    content: "“";
@@ -629,29 +629,29 @@ $screen-lg-min: 1200px;
 			    font-weight: bold;
 				}
 
- 			}
+			}
 
- 			.alignright {
+			.alignright {
 				float: right;
 			}
 
- 			.aligncenter {
+			.aligncenter {
 			    display: block;
 			    margin: 5px auto 5px auto;
 			}
 
- 			figure.highlight, div.highlighter-rouge {
+			figure.highlight, div.highlighter-rouge {
 				width: 100%;
 				margin-left: -15px;
 				padding-right: 10px;
 				box-sizing: content-box;
 
- 				@media (min-width: $screen-sm-min) {
+				@media (min-width: $screen-sm-min) {
 					margin-left: -30px;
 					padding-right: 60px;
 				}
 
- 				pre {
+				pre {
 					width: 100%;
 					font-family: 'Anonymous Pro';
 					background-color: $darker;
@@ -667,7 +667,7 @@ $screen-lg-min: 1200px;
 					margin-bottom: 10px;
 					margin-top: 10px;
 
- 					@media (min-width: $screen-sm-min) {
+					@media (min-width: $screen-sm-min) {
 						padding-left: 50px;
 						padding-right: 10px;
 						margin-bottom: 40px;
@@ -676,9 +676,9 @@ $screen-lg-min: 1200px;
 				}
 			}
 
- 			p, ul, ol {
+			p, ul, ol {
 
- 				code {
+				code {
 					font-family: 'Anonymous Pro';
 					font-size: 15px;
 					background-color: $darker;
@@ -687,56 +687,56 @@ $screen-lg-min: 1200px;
 					vertical-align: middle;
 				}
 
- 			}
+			}
 
- 			.tags {
+			.tags {
 				margin-top: 10px;
 				margin-bottom: 10px;
 				text-align: center;
 
- 				a, a:active {
+				a, a:active {
 					color: $white;
 				}
 
- 				a:hover {
+				a:hover {
 					color: $light-blue;
 				}
 
- 			}
+			}
 
- 			.share {
+			.share {
 				margin-top: 20px;
 				margin-bottom: 10px;
 				text-align: center;
 
- 			}
+			}
 
- 		}
+		}
 
- 		.feedback {
+		.feedback {
 			text-align: center;
 
- 			.fa-heart {
+			.fa-heart {
 				color: $red;
 			}
 
- 		}
-
- 		.comments {
 		}
 
- 	}
+		.comments {
+		}
+
+	}
 }
 
- .related {
+.related {
 	margin-top: 50px;
 	text-align: center;
 
- 	.related-header {
+	.related-header {
 		margin-top: -30px;
 		margin-bottom: 20px;
 
- 		a {
+		a {
 			color: $white;
 			font-size: 18px;
 			width: auto;
@@ -745,103 +745,103 @@ $screen-lg-min: 1200px;
 			box-shadow: 0px 0px 0px 0px, 0px 6px 12px rgba(0, 0, 0, 0.2);
 		}
 
- 		a:hover {
+		a:hover {
 			color: $dark-blue;
 		}
 	}
 
- 	.title {
+	.title {
 		padding-top:20px;
 		font-size: 24px;
 		margin-bottom: 20px;
 
- 		@media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			font-size: 36px;
 		}
 
- 		a {
+		a {
 			color: $white;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $light;
 		}
 	}
 
- 	p {
+	p {
 		margin-bottom: 0px;
 	}
 
- 	.previous-next {
+	.previous-next {
 		width: 50%;
 
- 		a {
+		a {
 			color: $white;
 		}
 
- 		a:hover {
+		a:hover {
 			color: $light;
 		}
 	}
 
- 	.next {
+	.next {
 		float: right;
 		text-align: right;
 	}
 
- 	.previous {
+	.previous {
 		float: left;
 		text-align: left;
 	}
 
- 	.date {
+	.date {
 		color: $light-medium;
 	}
 }
 
- .search-hr {
+.search-hr {
 	width: 700px;
 	border-color: $light-medium;
 }
 
- .error {
+.error {
 	.error-text {
 		margin-top: 30px;
 
- 		a {
+		a {
 			color: $light-blue;
 		}
 	}
 
- 	.links {
+	.links {
 		font-size: 1em;
 	}
 }
 
- .footer {
+.footer {
 	width: 100%;
 	margin-left: 0%;
 
- 	.fa-heart {
+	.fa-heart {
 		color: $red;
 	}
 
- 	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm-min) {
 		width: 90%;
 		margin-left: 5%;
 	}
 
- 	@media (min-width: $screen-md-min) {
+	@media (min-width: $screen-md-min) {
 		width: 80%;
 		margin-left: 10%;
 	}
 
- 	@media (min-width: $screen-lg-min) {
+	@media (min-width: $screen-lg-min) {
 		width: 70%;
 		margin-left: 15%;
 	}
 
- 	div {
+	div {
 		color: $light-medium;
 		text-align: center;
 		margin-top: 20px;
@@ -849,7 +849,7 @@ $screen-lg-min: 1200px;
 	}
 }
 
- .btn-categories {
+.btn-categories {
 	background-color: $light-blue;
 	border-color: $light-blue;
 	color: $white;
@@ -870,7 +870,7 @@ $screen-lg-min: 1200px;
 	}
 }
 
- .dropdown-menu {
+.dropdown-menu {
 	background-color: $light-blue;
 	color: $white;
 	> li > a {
@@ -883,19 +883,19 @@ $screen-lg-min: 1200px;
 	}
 }
 
- table{
+table{
     margin: 0 auto;
     border-collapse: collapse;
     border-spacing: 0;
     border:2px solid $darker;;
 }
 
- th{
+th{
     padding: 2px;
     border:2px solid $darker;;
 }
 
- td{
+td{
     padding: 2px;
     border:1px solid $dark-blue;;
 }
