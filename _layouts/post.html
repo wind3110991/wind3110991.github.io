@@ -125,21 +125,42 @@ layout: default
           (d.head || d.body).appendChild(s);
           })();
           </script> -->
-          <div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-    owner: 'wind3110991',
-    repo: 'wind3110991.github.io',
-    oauth: {
-        client_id: '70662d246de753736684',
-        client_secret: 'aaffa60b4015f216d2d559268859453a843c23ac',
-    },
-});
-gitment.render('gitmentContainer');
-</script>
 
+
+      <!--           <div id="gitmentContainer"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+      var gitment = new Gitment({
+          owner: 'wind3110991',
+          repo: 'wind3110991.github.io',
+          oauth: {
+              client_id: '70662d246de753736684',
+              client_secret: 'aaffa60b4015f216d2d559268859453a843c23ac',
+          },
+      });
+      gitment.render('gitmentContainer');
+      </script> -->
+
+      <div id="loading-spin"></div>
+      <div id="comment-thread"></div>
+
+      <script type="text/javascript">
+         var opt = {
+             type: "github",
+             user: "wind3110991",
+             repo: "blog-comment",
+             no_comment: "还没有评论哦，说点啥吧~",
+             go_to_comment: "写点什么",
+             issue_id: "1",
+             btn_class: "btn",
+             comments_target: "#comment-thread",
+             loading_target: "#loading-spin",
+             client_id: "70662d246de753736684",
+             client_secret: "aaffa60b4015f216d2d559268859453a843c23ac"
+         };
+         getComments(opt);
+      </script>
 
       {% if site.related_posts.length > 0 %}
       <div class="content-panel related clearfix">
