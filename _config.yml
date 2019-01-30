@@ -29,7 +29,7 @@ xing_link:
 facebook_link: windisbest
 
 # Footer
-footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://weibo.com/u/2949530701\">Wind Young</a>"
+footer_left: "交流分享，感激不尽 <i class=\"fa fa-heart\"></i> <a href=\"https://weibo.com/u/2949530701\">Wind Young</a> | <span id="busuanzi_container_site_pv">总访问次数:<span id="busuanzi_value_site_pv"></span></span>"
 footer_right: "&lt;/&gt; on <a href=\"https://github.com/wind3110991\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings

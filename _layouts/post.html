@@ -106,7 +106,7 @@ layout: default
 
       </div>
 
-      {% if site.twitter_username and site.disqus_account %}
+<!--       {% if site.twitter_username and site.disqus_account %}
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
         Let me know what you think of this article on twitter <a href="http://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> or leave a comment below!
@@ -121,16 +121,37 @@ layout: default
         I <i class="fa fa-heart"></i> feedback.<br />
         Let me know what you think of this article in the comment section below!
       </div>
-      {% endif %}
+      {% endif %} -->
 
-      {% if site.disqus_account %}
+<!--       {% if site.disqus_account %}
       <div class="content-panel comments">
         <div id="disqus_thread">
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
       </div>
-      {% endif %}
+      {% endif %} -->
+
+      <div id="disqus_thread"></div>
+          <script>
+
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://windisbest.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
       {% if site.related_posts.length > 0 %}
       <div class="content-panel related clearfix">
@@ -191,4 +212,6 @@ var disqus_shortname = "{{ site.disqus_account }}"; // required: replace example
 {% endif %}
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script id="dsq-count-scr" src="//windisbest.disqus.com/count.js" async></script>
 
