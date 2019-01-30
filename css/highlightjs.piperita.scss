@@ -22,6 +22,7 @@ $light-aqua:      #B0F0F0;
 $dark-aqua:       #86D1D7;
 $light-white:     #FFFFFF;
 $dark-white:      #DBDBDB;
+$deep-dark-white: #a9a9a9;
 
 
 /* Piperita Dark Title */
@@ -99,7 +100,7 @@ $dark-white:      #DBDBDB;
 .hljs {
   display: block;
   overflow-x: auto;
-  color: $base-white;
+  color: $deep-dark-white;
   -webkit-text-size-adjust: none;
 }
 
