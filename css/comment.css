@@ -126,7 +126,6 @@
 .timeline-comment-header {
     padding-right: 15px;
     padding-left: 15px;
-  color: #586069;
     border-bottom: 1px solid #d1d5da;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -177,7 +176,6 @@
 }
 
 .comment-body {
-    color: #616971;
     width: 100%;
     padding: 15px;
     overflow: visible;
