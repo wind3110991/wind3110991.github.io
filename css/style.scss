@@ -527,8 +527,8 @@ ul {
 		}
 
 		@media (min-width: $screen-lg-min) {
-			width: 50%;
-			margin-left: 25%;
+			width: 70%;
+			margin-left: 15%;
 		}
 
 		.thumb {
@@ -561,7 +561,7 @@ ul {
 		}
 
 		.content {
-			font-size: 18px;
+			font-size: 14px;
 			line-height: 170%;
 			padding-left: 15px;
 			padding-right: 15px;
@@ -738,7 +738,7 @@ ul {
 
 		a {
 			color: $white;
-			font-size: 18px;
+			font-size: 14px;
 			width: auto;
 			padding: 10px 20px;
 			background-color: $darker;
