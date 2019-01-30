@@ -48,8 +48,12 @@ layout: default
 
       <div class="read-time">
         <small>
-          {{ minutes }} minute read
+          {{ minutes }} minute read   
         </small>
+
+          <span id="busuanzi_container_page_pv">
+            本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+          </span>
       </div>
 
       <div class="content-panel content">
@@ -185,3 +189,6 @@ var disqus_shortname = "{{ site.disqus_account }}"; // required: replace example
 })();
 </script>
 {% endif %}
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
