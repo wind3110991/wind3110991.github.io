@@ -125,7 +125,20 @@ layout: default
           (d.head || d.body).appendChild(s);
           })();
           </script> -->
-
+          <div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'wind3110991',
+    repo: 'https://github.com/wind3110991/wind3110991.github.io/tree/master/comments',
+    oauth: {
+        client_id: '70662d246de753736684',
+        client_secret: 'aaffa60b4015f216d2d559268859453a843c23ac',
+    },
+});
+gitment.render('gitmentContainer');
+</script>
 
 
       {% if site.related_posts.length > 0 %}
@@ -187,20 +200,7 @@ var disqus_shortname = "{{ site.disqus_account }}"; // required: replace example
 {% endif %} -->
 
 
-          <div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-    owner: 'wind3110991',
-    repo: 'https://github.com/wind3110991/wind3110991.github.io/tree/master/comments',
-    oauth: {
-        client_id: '70662d246de753736684',
-        client_secret: 'aaffa60b4015f216d2d559268859453a843c23ac',
-    },
-});
-gitment.render('gitmentContainer');
-</script>
+
 
 <!-- <script id="dsq-count-scr" src="//windisbest.disqus.com/count.js" async></script> -->
 
