@@ -27,7 +27,7 @@ _____
  什么是栈，它是你的电脑内存的一个特别区域，它用来存储被每一个function（包括main（）方法）创建的临时变量。栈是FILO，就是先进后出原则的结构体。它密切的被CPU管理和充分利用。当一个function退出时，所有它的变量都会从栈中弹出,以后都会永远消失
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprlt1ajzj20et0ajwf6.jpg)
-<small> (我很喜欢用上手枪弹夹的方式来描述这个概念)</small>  
+<small align="center"> (我很喜欢用上手枪弹夹的方式来描述这个概念)</small>  
 <br/>
 
 关于栈，我总结为三点：  
@@ -134,7 +134,7 @@ Block Started by Symbol的简称，通常是指用来存放程序中未初始化
 一般来说，malloc所申请的内存主要从heap区域分配的。
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprp9ukjsj20fg04jdg9.jpg)
-<small> (Heap的基本构成)</small >  
+<small align="center"> (Heap的基本构成)</small >  
 <br/>
 
 linux 内核维护一个break指针，这个指针指向堆空间的某个地址。从堆起始地址（Heap’s Start）到break之间的地址空间为映射好的（虚拟地址与物理地址的映射，通过MMU实现），可以供进程访问；而从break往上，是未映射的地址空间，如果访问这段空间则程序会报错。
@@ -226,7 +226,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzpruuetbpj20ep06cq4z.jpg)
-<small> (数组的地址排列1)</small >   
+<small align="center"> (数组的地址排列1)</small >   
 <br/>
 
 #### (2) 数组中的元素按照存放顺序依次从低地址到高地址存放，但是每个元素中的内容又是按高地址向低地址方向存储：
@@ -239,7 +239,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvfkbsoj20h608xq6d.jpg)
-<small> (数组的地址排列2)</small >  
+<small align="center"> (数组的地址排列2)</small >  
 <br/>
 
 #### (3) 数组在使用过程中遇到的最多的问题可能就是下标越界
@@ -256,7 +256,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvq5h2wj20gw08otbq.jpg)
-<small> (数组的地址排列3)</small >  
+<small align="center"> (数组的地址排列3)</small >  
 <br/>
 
 结合下标越界示意图看上面的的代码会发现，由于越界设置charsTwo[3]元素的值，导致变相更改了charsOne[0]的值。
