@@ -23,11 +23,12 @@ _____
 在Linux中，其逻辑地址等于线性地址。因为Linux 所有的段（用户代码段、用户数据段、内核代码段、内核数据段）的段基线性地址都是从 0x00000000 开始，长度4G，这样线性地址 = 0 + 偏移地址，也就是说逻辑地址等于线性地址了。
 
 
-##### （1）栈（stack）
+#### （1）栈（stack）
  什么是栈，它是你的电脑内存的一个特别区域，它用来存储被每一个function（包括main（）方法）创建的临时变量。栈是FILO，就是先进后出原则的结构体。它密切的被CPU管理和充分利用。当一个function退出时，所有它的变量都会从栈中弹出,以后都会永远消失
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprlt1ajzj20et0ajwf6.jpg)
-<center> (我很喜欢用上手枪弹夹的方式来描述这个概念)</center >
+<center> (我很喜欢用上手枪弹夹的方式来描述这个概念)</center>  
+
 
 a、栈的生长和伸缩就是函数压入或者推出局部变量。
 b、我们不用自己去管理内存，变量创建和释放都是自动的。
@@ -47,7 +48,7 @@ c、栈中的变量只有在函数创建运行时才会存在。
     
 ______
 
-##### （2）堆（heap）
+#### （2）堆（heap）
 a、变量可以被全局访问
 b、没有内存大小限制
 c、堆内存读出和写入都相对慢,因为它必须使用指针图访问堆内存
@@ -90,7 +91,9 @@ Block Started by Symbol的简称，通常是指用来存放程序中未初始化
 全局变量存储细节：关于全局变量存储在前面介绍内存组成已经说明，这里不再赘述。  
 
 变量的存储类别：
-> C的存储类别包括4种：auto（自动的）、static（静态的）、register（寄存器的）、extern（外部的）。  
+    
+    C的存储类别包括4种：auto（自动的）、static（静态的）、register（寄存器的）、extern（外部的）。  
+
 根据变量的存储类别可以得知其作用域和生命周期。
 
 
@@ -129,7 +132,8 @@ Block Started by Symbol的简称，通常是指用来存放程序中未初始化
 一般来说，malloc所申请的内存主要从heap区域分配的。
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprp9ukjsj20fg04jdg9.jpg)
-<center> (Heap的基本构成)</center >
+<center> (Heap的基本构成)</center >  
+
 
 linux 内核维护一个break指针，这个指针指向堆空间的某个地址。从堆起始地址（Heap’s Start）到break之间的地址空间为映射好的（虚拟地址与物理地址的映射，通过MMU实现），可以供进程访问；而从break往上，是未映射的地址空间，如果访问这段空间则程序会报错。
 
@@ -159,14 +163,14 @@ _____________
     int *a = malloc(4);  //申请4个字节的空间用于存放一个int类型的值
     char *b = malloc(2);  //申请2个字节的空间用于存放一个char类型的值
 
-####（2）calloc
+#### （2）calloc
     【函数原型】 void *calloc(size_t __count, size_t __size)  
     【参数说明】 count 表示个数，size 单位个需要分配的内存空间的大小，单位是字节。  
     【返回值类型】 void * 表示未确定类型的指针。
     【函数功能】 表示向系统申请分配 count 个长度为 size 一共为 count 乘以 size 个字节长度的连续内存空间，并将每一个字节都初始化为 0。
 
 
-####（3）realloc
+#### （3）realloc
     【函数原型】 void *realloc(void *__ptr, size_t __size)  
     【参数说明】 ptr 表示需要修改的内存空间的地址，size 表示需要重写分配的内存空间的大小，单位是字节。  
     【返回值类型】 void * 表示未确定类型的指针。  
@@ -190,7 +194,7 @@ _____________
     g = NULL;     //将g指针指向NULL
 
 
-####（5）额外提一下void
+#### （5）额外提一下void
 
 除了free的返回值为空外，其他三个函数的返回值均为void* 类型。void应该理解为 “指向空类型” 或者 “不指向确定” 的类型的数据。在将它的值赋给另一个指针变量时由系统对它进行类型转换，使之适合被赋值变量的类型。
 
@@ -214,7 +218,7 @@ _____________
 
 ### 三、关于数组
 
-#### (1) 数值中存储的元素，是从所占用的低地址开始存储的。
+####  (1) 数值中存储的元素，是从所占用的低地址开始存储的。
 
     int main(int argc, const char * argv[]) {
         char chars[4] = {'l','o','v','e'};    
@@ -226,7 +230,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzpruuetbpj20ep06cq4z.jpg)
-<center> (数组的地址排列1)</center >
+<center> (数组的地址排列1)</center >   
 
 
 #### (2) 数组中的元素按照存放顺序依次从低地址到高地址存放，但是每个元素中的内容又是按高地址向低地址方向存储：
@@ -239,7 +243,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvfkbsoj20h608xq6d.jpg)
-<center> (数组的地址排列2)</center >
+<center> (数组的地址排列2)</center >  
 
 #### (3) 数组在使用过程中遇到的最多的问题可能就是下标越界
 
@@ -255,7 +259,7 @@ _____________
     }
 
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvq5h2wj20gw08otbq.jpg)
-<center> (数组的地址排列3)</center >
+<center> (数组的地址排列3)</center >  
 
 结合下标越界示意图看上面的的代码会发现，由于越界设置charsTwo[3]元素的值，导致变相更改了charsOne[0]的值。
 思考：为什么这里改charsTwo，却最后改了charsOne的值呢？（提示：stack FILO)
@@ -267,7 +271,7 @@ _____________
 说实话，我研究本文的内容，其实也是因为这个问题 [《malloc申请得到的内存后free释放，操作系统会立即收回那块内存吗》][3] 开始的。  
 在研究了很多回答后，我得到的最好答案 [在这里][2]，有兴趣可以细读一下。下面我做一个带我理解的简单转述：
 
-####（1）free的内存并非立即归还OS
+#### （1）free的内存并非立即归还OS
 The more interesting part is how free works (and in this direction, malloc too can be understood better).
 a) malloc/free 不可以直接操作 OS memory/virtual memory, 在linux OS中，每一个内存块实际上都是特定大小的块（block/chunk）。实际上在大部分OS里，我们都无法直接操作操作系统的内存，即物理内存。假设我们可以操作，会带来什么后果呢？由于内存归还（大小、地址）的不确定性，我们的内存中会产生大量的gap。  
 
@@ -275,7 +279,7 @@ a) malloc/free 不可以直接操作 OS memory/virtual memory, 在linux OS中，
 那么问题来了： 我就是要归还40byte给OS，这时怎么办呢？
 
 
-#### (2) free维护了自己的块列表
+####  (2) free维护了自己的块列表
 
 free维护了自己的块列表，通常它也会尝试将地址空间中的相邻块merge在一起。空闲块列表只是内存块的循环列表，其中包含一些administrative-data。这也是为什么使用标准malloc/free管理非常小的内存元素效率不高的原因。每个内存块都需要额外的数据，而更小的大小会产生更多碎片。  
 
@@ -295,7 +299,7 @@ free维护了自己的块列表，通常它也会尝试将地址空间中的相�
 你可能会覆盖存储在另一块内存中的administrative-data，这些内存位于您的数据块“后面”（因为这些数据通常存储在内存块的“前面”，可以参考上面数组的那个情况）。如果空闲然后尝试将您的块放入空闲列表，它可以触摸此administrative-data，最终这会使系统崩溃。  
 
 
-####（4）Free的基本实现
+#### （4）Free的基本实现
 
     void free(void *p)
     {
