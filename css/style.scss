@@ -21,7 +21,7 @@ $dark:           #2D2D29;
 $medium:         #3B3B35;
 $light-medium:   #969696;
 $dark-blue:      #215A6D;
-$yellow-wind:    #bf633aeb;
+$color-wind:     #bb361b;
 $green:          #92C7A3;
 $light:          #DFECE6;
 $white:          #FFFFFF;
@@ -54,7 +54,7 @@ body {
 }
 
 a, a:active {
-	color: $yellow-wind;
+	color: $color-wind;
 	text-decoration: none;
 }
 
@@ -135,7 +135,7 @@ ul {
 	padding-right: 30px;
 	margin-top: 20px;
 	box-shadow: 0px 0px 0px 0px, 0px 6px 12px rgba(0, 0, 0, 0.2);
-	border-bottom: 5px solid $yellow-wind;
+	border-bottom: 5px solid $color-wind;
 }
 
 #my-menu {
@@ -149,7 +149,7 @@ ul {
 	}
 
 	a:hover {
-		color: $yellow-wind;
+		color: $color-wind;
 	}
 
 	.pages {
@@ -252,12 +252,12 @@ ul {
 	}
 
 	.content-panel:nth-of-type(1) {
-		border-bottom: 10px solid $yellow-wind;
+		border-bottom: 10px solid $color-wind;
 	}
 
 	.author-header {
 		font-family: 'Montserrat', sans-serif;
-		color: $yellow-wind;
+		color: $color-wind;
 		margin-top: 0px;
 		padding-top: 15px;
 		font-size: 30px;
@@ -307,7 +307,7 @@ ul {
 
 		h2 {
 			margin-bottom: 30px;
-			color: $yellow-wind;
+			color: $color-wind;
 			font-size: 26px;
 		}
 
@@ -347,7 +347,7 @@ ul {
 		}
 
 		a:hover {
-			color: $yellow-wind;
+			color: $color-wind;
 		}
 	}
 
@@ -374,7 +374,7 @@ ul {
 		}
 
 		a:hover {
-			color: $yellow-wind;
+			color: $color-wind;
 		}
 
 		ul {
@@ -477,7 +477,7 @@ ul {
 		}
 
 		a:hover {
-			color: $yellow-wind;
+			color: $color-wind;
 		}
 
 		h4 {
@@ -699,7 +699,7 @@ ul {
 				}
 
 				a:hover {
-					color: $yellow-wind;
+					color: $color-wind;
 				}
 
 			}
@@ -808,7 +808,7 @@ ul {
 		margin-top: 30px;
 
 		a {
-			color: $yellow-wind;
+			color: $color-wind;
 		}
 	}
 
@@ -849,8 +849,8 @@ ul {
 }
 
 .btn-categories {
-	background-color: $yellow-wind;
-	border-color: $yellow-wind;
+	background-color: $color-wind;
+	border-color: $color-wind;
 	color: $white;
 	&:hover {
 		background-color: $dark-blue;
@@ -870,10 +870,10 @@ ul {
 }
 
 .dropdown-menu {
-	background-color: $yellow-wind;
+	background-color: $color-wind;
 	color: $white;
 	> li > a {
-		background-color: $yellow-wind;
+		background-color: $color-wind;
 		color: $white;
 		&:hover {
 			background-color: $dark-blue;
