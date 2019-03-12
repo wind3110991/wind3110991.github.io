@@ -9,8 +9,7 @@ tags:
  - mysql
 ---
 
-![Thumper](https://upload.wikimedia.org/wikipedia/zh/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png)
-
+![Thumper](https://www.fengweishang.com/wp-content/uploads/2019/01/mysql-sysnc-2.jpg) 
 
 ### 一、索引的原理 
 Mysql我相信大部分人都接触过，但是很多人刚刚开始使用Mysql时，都是随便建表，一堆查询条件瞎搞的。代码日久未生情，却生出了一堆问题，过度使用Mysql与不合理使用索引，往往会导致慢查询等性能问题。 能区分一个低级与高级程序员的关键，就是看他是否能够掌握一门软件的原理，从而合理分析并使用它。
@@ -104,16 +103,11 @@ GG，由于没有`最左前缀`列被引用到，你可以看到没有索引被�
 ```explain select * from student where age>3 and name = "Tom";```
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108x6sy5cj20s602sq2t.jpg)
 
-![Thumper]()
-![Thumper]()
-![Thumper]()
-![Thumper]()
-![Thumper]()
-![Thumper]()
-
 
 ####（2）单列索引 
+
 我们新建一张表： 
+
 ```
 CREATE TABLE `student2` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -133,6 +127,7 @@ CREATE TABLE `student2` (
 
 ####（3）优化建议 
 针对一些实际的应用问题，结合踩过的坑，我有下面几点建议： 
+
 a) `对于InnoDB引擎，一定要使用一个业务无关的自增ID字段作为表的主键`。有很多人喜欢使非自增ID作为主键，这绝对是一个糟糕的设计，结合B+树的特性，在写表时节点需要频繁的移动，缺少递增的主键容易使得索引的结构松散，从而产生大量的碎片和空间浪费； 
 b) 针对频繁写操作且数据量较大的表，要定时进行表的Optimize操作：InnoDB使用语句： `ALTER TABLE table_name ENGINE = Innodb`，MyISAM引擎使用`Optimize table xxx`语句； 
 c) 对于数据量较小的表（千百行），不需要索引，只需要做全表扫描； 
