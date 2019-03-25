@@ -58,7 +58,7 @@ pc寄存器用于存放一条指令的地址，每一个线程都有一个PC寄�
 
 #### (1) Marking
 首先，所有堆中的对象都会被扫描一遍，要进行垃圾清理，我们总得知道垃圾是哪些吧。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fanl9jizj20jl0dvdgc.jpg)
+![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fbewd1p2j20n70dv0t8.jpg)
 
 #### (2) Normal Deletion
 垃圾收集器将清除掉标记的对象。
@@ -70,4 +70,5 @@ pc寄存器用于存放一条指令的地址，每一个线程都有一个PC寄�
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1faw7limbj20k70czdgo.jpg)
 
 
-嗯，听起来这样就可以了？但是实际情况下，这样进行GC往往是无法满足我们需求的，无论是效率方面还是开销。
+嗯，听起来这样就可以了？但是实际情况下，这样进行GC往往是无法满足我们需求的，无论是效率方面还是开销。所以，`JVM将内存中的Heap部分，进行了分代：新生代，老年代和永久代`。
+![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fbdc0qotj20ca0dr7dl.jpg)
