@@ -5,7 +5,6 @@ date:       2019-01-09 22:32:18
 summary:    就算是个API Boy，了解C的内存管理能够大大提升自己的内功
 categories: c/c++
 author:     Wind Young
-thumbnail:  jekyll
 tags:
  - c/c++
  - 内存管理

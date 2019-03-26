@@ -4,7 +4,6 @@ title:      聊聊Java的GC机制
 date:       2019-03-27 20:12:05
 summary:    Java
 categories: Java
-thumbnail:  jekyll
 tags:
  - Java
 ---

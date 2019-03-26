@@ -4,7 +4,6 @@ title:      深入Mysql：(一)你真的了解索引？
 date:       2019-03-11 22:42:22
 summary:    Mysql索引
 categories: mysql
-thumbnail:  jekyll
 tags:
  - mysql
 ---

@@ -4,7 +4,6 @@ title:      深入Mysql：(二)事务的隔离性
 date:       2019-03-14 20:12:05
 summary:    Mysql事务
 categories: mysql
-thumbnail:  jekyll
 tags:
  - mysql
 ---
