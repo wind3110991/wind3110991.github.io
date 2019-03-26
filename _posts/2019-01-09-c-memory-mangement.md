@@ -57,29 +57,29 @@ d、没有高效地使用空间，随着块内存的创建和销毁，内存可�
 e、你必须管理内存（变量的创建和销毁你必须要负责）；  
 f、变量大小可以用realloc()调整；  
 
-```C
-#include <stdio.h>
 
-int a = 0;                  // 全局初始化区
-char p1;                    // 全局未初始化区
+    #include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-      int b ;                 // 栈
-      char s[] = "abc";       // 栈
-      char p2 ;               // 栈
-      char p3 = "123456";     // 123456在常量区，p3在栈上。
-      static int c = 0 ;      // 全局（静态）初始化区
-      
-      p1 = (char )malloc(10); // 分配的10字节的区域就在堆区
-      p2 = (char )malloc(20); // 分配的20字节的区域就在堆区
-      
-      printf("%p\n",p1);      // 0xffffffb0
-      printf("%p\n",p2);      // 0xffffffc0
-      
-      //p1 变量的地址 0xffffffb0 比 p2 变量的地址 0xffffffc0 要小
-      return 0;                
-}
-```
+    int a = 0;                  // 全局初始化区
+    char p1;                    // 全局未初始化区
+
+    int main(int argc, const char * argv[]) {
+          int b ;                 // 栈
+          char s[] = "abc";       // 栈
+          char p2 ;               // 栈
+          char p3 = "123456";     // 123456在常量区，p3在栈上。
+          static int c = 0 ;      // 全局（静态）初始化区
+          
+          p1 = (char )malloc(10); // 分配的10字节的区域就在堆区
+          p2 = (char )malloc(20); // 分配的20字节的区域就在堆区
+          
+          printf("%p\n",p1);      // 0xffffffb0
+          printf("%p\n",p2);      // 0xffffffc0
+          
+          //p1 变量的地址 0xffffffb0 比 p2 变量的地址 0xffffffc0 要小
+          return 0;                
+    }
+
 
 #### （3）BSS段
 BSS是`Block Started by Symbol`的简称，通常是指用来存放程序中未初始化的`全局变量`和`静态变量`。
