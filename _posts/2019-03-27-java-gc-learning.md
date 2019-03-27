@@ -84,7 +84,7 @@ ________
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g9dmmebqj20sg067q4d.jpg)
 
 #### （1）新生代 
-所有新产生的对象全部都在新生代中，`Eden区`保存最新的对象，有两个`Survivor Space`——S1和S0，比例大致为8:1:1。当新生代的Eden区满了，将触发一次GC，我们把新生代中的GC称为`minor garbage collections`。minor garbage collections是一种`Stop the world`事件，比如你妈在打扫时，会把你赶出去，而不是你一边扔垃圾她一边打扫。 
+所有新产生的对象全部都在新生代中，`Eden区`保存最新的对象，有两个`Survivor Space`——S1和S0，三个区域的比例大致为8:1:1。当新生代的Eden区满了，将触发一次GC，我们把新生代中的GC称为`minor garbage collections`。minor garbage collections是一种`Stop the world`事件，比如你妈在打扫时，会把你赶出去，而不是你一边扔垃圾她一边打扫。 
 
 我们来看下对象在堆中的分配过程，首先有新的对象进入时，默认放入新生代的Eden区，S区都是默认为空的。下面对象的数字代表经历了多少次GC，也就是对象的`年龄`。
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7ddwdj5j20kx0cr0tq.jpg)
@@ -96,7 +96,7 @@ ________
 ![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7qy4xbej20l70dsaaz.jpg)
 
 接下来就是无限循环上面的步骤了，当新生代中存活的对象超过了一定的【年龄】，会被分配至老年代的Tenured区中。这个年龄可以通过参数MaxTenuringThreshold设定，默认值为15，图中的例子为8次。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7qy4xbej20l70dsaaz.jpg)
+![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1h4oboj5wj20nq0gt3z0.jpg)
 
 新生代管理内存采用的算法为`GC复制算法(Copying GC)`，也叫`标记-复制`法，原理是把内存分为两个空间:一个From空间，一个To空间，对象一开始只在From空间分配，To空间是空闲的。GC时把存活的对象从From空间复制粘贴到To空间，之后把To空间变成新的From空间，原来的From空间变成To空间。 
 
