@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      深入Mysql之二 ———— 事务的隔离性
+title:      深入Mysql之二 事务的隔离性
 date:       2019-03-14 20:12:05
 summary:    Mysql事务
 categories: mysql
