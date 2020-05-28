@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      深入Mysql之 ———— 你真的了解索引？
+title:      深入Mysql之 你真的了解索引？
 date:       2019-03-11 22:42:22
 summary:    Mysql索引
 categories: mysql
@@ -8,7 +8,7 @@ tags:
  - mysql
 ---
 
-![Thumper](https://www.fengweishang.com/wp-content/uploads/2019/01/mysql-sysnc-2.jpg) 
+![Thumper](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAACWCAMAAABQMkvIAAABaFBMVEX///8AYYvljgD///3//v/8//////z9/v/5///kjwD///rojAAAYYr9//0AXIYAX4fcigBWiqT///UAU3r//+600djz///ZigwAWYbWiwAAWHz16r3/+//e8fXr1psAWoTz37FgkqfmxoPq0JL//ejasGN4pbb66cYAUHvVjRMAT3IAX43G3+UAWXnUqVL9991BeZLYo0PYmzbctWDWkicATnMnZofehgDW8fTN5uymx9KYvcyJr74AVW4AWosAX4Iwa4Zvm6hNhpM4cYiXwdS50eCm0t4AUGwiYnqKsr14n7E9dYedyctchZfU8/fc6egATV9xnrVfjavB1NRwsMzc//8AQmRvj5mpvsWd1uWWrrRLc4SFmZbT3N57ucqBr7njuXXnwIjcplnImEPt1K//+tO74+5jmrXHkR5alaMibYM3c5fz4Kbp59Tfzpzix36+jAX/+8W9nkzLq0/YwnfmqjjBjS/j2LciJkscAAAgAElEQVR4nO19jUMaSbZvt9XVVZZUN3ZLCW0TUFGBhvgRNQIGdNyJRNfszbtvZ/be9+4dkxnz3FnfzM7cvXn//junGhQRkHzMJNnwS2KwoaH7x6nzVadOGcYEE0wwwQQTTPAbg3T+Ix/3Mv4JQG2bEIsSIQzGGBFEKmlPaH0PECIphf8lg0eSGCwEWMaE03cFieWRGCqrFDwQAEqZNWH0nUEMIqRKLR60qgcbq/UsFZ5APfCxr+tzhiWfz/q5KIqazaZfPatnObEI+9hX9dkCbLulZouOkwuCnGmaTs6vHtbox76szxhEGqS+E0Xtw2erGy0/ZybcKF3+qqKoRDuFhktaocHwAb5+og3uA5E2PcuZ7ddUUpWtn1V9p9VKuMdnNR4SW4I+ZUx6HkjyhMsxIW1+lHb+psAeCZuqWuOonG5GblD9A5h+HP3gDXCw/UJOOB0LhBA6m46qNSk58Ae+lPp68TiImlF5Y/Vkv9GoV/bQq2IcaJ1wOgZsSUGPmtVDBWQSkEdGpaps+C1ALt30/aBaPTpsVJSBkjrx/O+HLbmnDpqR/5QKBtETeKLg3atnx7l0Ou26biJhmuBUlduHKUWNmNEJq6OA3hN/XXbdoEKYBZZIeGCLqFFb3Ng4aFer1TK4qqYZObmddiMLX4AVEgirPvZlf8JARoV6Vo7cdsWQglhMYowvwfIrlc3WapX6yUZQbrngVgXtZ1khCIPQ/2Nf9icMzahQJ76Za9eosC2G9t2KwSyIRykHB2CjXGw2o/TOQQMUKnioH/uyP2EQG7x3ZqjDdBRU97iw8SCyCU4AjG4JMT48NFRtv11sRlG6uFtXnjcZ9cOB3hOnVKjFwM2dZsHYW5pRRikKI5j3MGQUlCdVfzwNIPh3y6cVPgmdhoNSW0hiM6nO/ERwpjiNyWIMeAW7b0jOpaW5NVTqaMd1o2jnMPuRr/oTB0bvBiNqI+f4J1zZ8UEBQsq5ITzeSZswQxBVPypGUcL3G0pQZoNesKj8iJf+SUOI5wc5t5jiHRkl4k/fbpzWFfhTMWcMpVll99t+OjL92RqoAgO8LWJ/zKv+dEEMoKtWdZsHKhZJagh1WG5Vz1SXUSLRKxB0b7HsRFGuCmQjmxNGB4IIPfgbfuQ3OkckWKv9oumvcivOPtvwGoZ2n6YOiuD0+2dZ8F8n+b3BIIJQykj2R8c5UvqIbXPbUy9yblt1Zki0MDKIAISRfVFumVFz97VCwf2I1/3pAiw+jHuLrzbN8tda7HDe3qbPn/izXHT0AEVXC2KAEByuejXXct1yg8tJkD8SqaoLmpMxW8QzpPTZv1SkuDNHAk/WNvxEwtw5VBYFuVViok0Hgqgjxz3es0BjxgxJVVPgWd19ITj8h1XTaQWLWXBZjYkPNQSSNIpRdd/wWBjHmUKEIRmgKWHwC/VsJ0q4wUbWQK+U/97X+nlAimzVaR1o710foDwM5YCJUdsG74qnwI1yg4M9OsnuDQHEmsaJbwZPIfTsyCUETHSQ8SEUbL6sBDgjdZSlclIxMRCCcFELomCReirOgFrg0w+cXCIeyDExKm1w9tNHWcuazPAPAiHM5ou5VrXm2ffllNG7orZRq2L8tKEEExBBDVIQXzSIZIS+DpxgUYlxRjGm/L4Gi+/4cAK4q9ak+LQPYG8IUWdps/yaj+NfWgQG/tNjxzSLq0joZE6vHwQtOKkdJ3KgGcd4vRCMeaq+Y7ruToMOVrhfNnA63oY4qRz5q2oMenR2VPD9stsy/RSfuFB3gbNLjKjTtHlcH2MEMwacYvY/nXCj9nPQopNRPwiE1KoRJkFgTI/DkMWeH+QSZu5UETIR04GweL3sJMqrnIwVC6F/8KRlRuV9OrH1gwEGqlFNmDt14Y3jX1Jp0++qZuQEtbtZqgkMzNUTiz6tRs4pv9fPRzAI69UpCGn620m6ZCBsQW35vGrmFrk1DqOYHTVeP3Eip1ozJi7pABAQOrmaa6GLOU7WkxBqC3WYdkznZMLnIIBDJLI/um6QHYvQDmpl101Ua5KHk6qofmChU6VqBqvUpuN7Q/zMNRPBCRZOTeab+0CYZez7EVhuOT6jlpEqg59frgmPWROvtA+M8CMH7JKgdHxps9VZ0TTTi3zC6F1IUitH5RSO/vH9S0uCJk1E5dd0Ypz6YUmsLXmSlcyyx2cUBPuF75rBhhITy9QPwv9HrnnGmS4kjQ+FoUVGG35LeNmqC7Fo3Qono74fatdJ79NrRoFMKtl9riYEBo0gclo/Zq1J6HQbhICwFetUsxkLppSU3pNPtoFzdZSLXH+fTqL7PoBhShRTOv+McsmkFd7fwEBgD4lUOYpAA0/0aD8qfsKvYCmJZlRyTtm9Mx5Au7TVoh81g0M+Mfe3QGhKM6plFAvx6b+m1L2UEitUFqkdt5rNcur3udDPBsRI+WZQMSQuWLYtQSrBAQdCx+gKYdHVwI2cH7NCcHti8bsgMOpNP4UVd4SEDOtGyhVqGWOlTfaqUeSU9zmhE0//GgTzSMW6gUtuiUGzu26U+0pZbByZs4x9iEWj6nNLTFyoG1Dwnpr74C4x7LLzVz8CisD0j8MoEX8+CBJRAOH9WFUpXwioOnCbi8rCRmWydhxFLlY2jVXfQAStH7sJt/x0Mnt/A0vyWbfZBvNOqc1Xi2YCgkvQq+P0K5Is5LN+y0z/uHcdtU70KZdGIzDLFRsUqYVhkOM4LXNXERovaxwJMEh7bdc0q19lKTbhsZiNq/G/7O5RjFi1sln8jtqMGFmcNm79z8At7sM4ZveW24Om4E+PW1EUtM/qWYq9jThn9ped1bcsWx25zYOszaRMBWaUO/jzRi4KaoSw+xbbgAhbRH23k44SCddvLaYUwSYI9MuWUVz3Ua/i4jvwnhq+aeZe0FrRdDZAs7L7qsMll7bgjfaTVjNqmc5Oa7WicJn+73PpnywoyR65ud0s0HeYTph+g2AsVGwoci+jhpQEPIRs/eTA94OW66T9jbr6wpeRQTAvjEbZbB6CuJ6l3USQAorbbvSkRuR9lU2W0J3hLIm9uGZbxVzgOsBp7O5/qbxaliSh+iodlRtKHbRaUbAHVKTK4JRmBVY1G+S+mL1b7ZxNHR6Vc1G6uFEBhWpjr9MvsQsXMCpDvtd2zOpZo5Vw07tcEML3y4nyKrVCNNtj1eAxzFdRVVmswugPTkCHWHpl6ZcnqcgosWilmjbdwGlG/omB60DUYdncSWF9xLhCxixscWbwvb+WnSjXanCcOhHyC7RSYOyxH0ztwMcur357T+i1zPyk2KzuyfG750lcs0cNIXhl1nfM8lGFSmGzL9OTAttiG9mTdrX65KwGFINvT4jaL/unezijN9bAxaX3YRgSbArNUwc5s3q8muVfYvNdTNxTRmB88mylsqdAOuEXnBiRT/3iIqfj6kILfSkpGQQK8Fb75XRUBDH9otc7xmvsu70HsUNh7egbiEZZp97+Hm7ivmbIqu4JuXdYTTvlfTD6nE4a7mswatPsyTd16kk6Ti+NWEaxWwyYI2Ebqra400xvZPHxFzj2B0Dixg489aROyZjmiUjd1QxL9UGXoFd7EAVHz8Vb1aj98wLdeiwuU9/+heNAvo9SyrH7nq1jeqayuk/k3r/5UfogS/lknY6BjFqYUWbC+Mu/K35/V2eJ8yrgJWQr9cOzv+22ckFQxcqoyP9fWTZRpBohzjZbFlf/+r/V/ZoUSyjUXn2xHRTTaSfhOg64t07g+7tnf5qsG+9CSxZYlT/9+3+AgzVaziA4qpwGxVwOmYxyvl9tH2ws7tdrypj0ibkDqji7L5cExme/7CZM0wzKT04P65W9rFIctYGctN26A/Tb732RLf584AKC/6xkdQN4i+h8PjO+yAzUaIwTNmEr+FQZLFFwqgwmPOwDiU3N4mjhd7jIzwqa0PutvSDPylEzCjYqhvBQPrFT3L1v/m7ePxn48L3xru813nl9r7pf0Cymviu7kZmrfpfV/v49nwMhBLhnVkip2kvVn+0/q1eyVMLvmBgc9mlEhBZ8X0TV4Iz9RqoCrh2xIKgY655GgjHiCWaAGAjP8+ZGwJsreNwCB8iCiIZK7IdhWTaeNRDCxvZO+t07nbUMLvBdYnAZGkPWjcPVNI4dx0z41f2sYROJmfwRt2CBw0ttVV88yPnFYjFdBFerghU/ljEiw8JtwZ/vHwR+AL6ZX93d+O65EmOtaR0N6YWhUsxbX3jw8z8ePXo4GnnPlkiDgI8mUhTgrJfnK4NxvvRgYX1OcEq9uEOhQby1le47rax7UgylSfLKadVpNpvp3e/2uKBKjoiWQLRYyOtt7MUJ30MUwd9c+fDPtj2qqwyF2Lje9jF40EjnqtUTRd6fUWYJLteXV7ZKyeTU45lRmJrKLONKLrw5Key5/NLmdmY+mUxO47+pHuhDjx/PZ7ZeLS0UQFy1Zw5xfb40PT2l3yyzIFBJDrkqeEo1cF7EdIqtZ4qM7isRUovWd8CB1btvAHSMtQExlhza3QebeTXKacdxwK9owYkJ1438M/X+o54xsf5yK5OE+5yaHo2pmeQyBIk4j8bgS9gsJfXR4cDnHmce5gsCd2s0CKX5UvdjMvmQiqGm34KRQJ6vlgO4Xcc/qEhvxJ3S0LbVj9gj3jQ1My4+cssgcWRoboUIo/JE8w8hmZZTF76HndT7Zw6Yl99KTiVn9J2OYAf4mZ7JLMONGlYovLWHGWAY/vY83Uv+VCyKWmAzr9bicS8kMBq/cCqzYEGQ7w29LNzekdcWg1wi4aSD/VGyQ2HYVKqRmWi5keYG6IQYIVGuCTG0wtey1GlgtvALiAUbfrbc3Mn7sYnwri7x3rUIdugZNuiB0QeG5yER+e3kDPI2c81on364JanJrXzMqLGGjOqjOOpDNoxRLCNDN5TX9neLOTfhn43opY+SnvJjUsy240St+GEwq8QgGUW9ZRFR910nkYgSLSeCPwk8y83NvldJMAvhnhYuk/omQQJnMpnS9tYofP+D4AJM2cJ2Ryrx1JkknHYHpUwSn06iFE8nSxc8ZMDqwnyX58wCsYZLUGciAMNOlVqs+omgXaG4HczA/oZdRpHUVms2MCMc/QksYh/0CVJPrKq2A/pWa93d2bSbiNz3Z1SGwhJLGbxn/JvcXM4vXKyPwMW6h/W2bO4fyY5gPgZqNpeu+k+7WL9YW8ivbCe7CmF+aQ7nnEg/o6MvUGtsTnm2cVBMVyuSDN49p5dRsDKvn3QUapTeUIPcCdz2jBj7ZeDdjEBCq3/4P7lES5/zfowSGXKrsAnjVWvEqa0LD3uHQwStYXV+WNdgBGcpLUnXLmc6I316urS07gmuA0xi291ZIu3eFha+n5kBJ2A6fvO3ZzTeqoTBIFX19s7x6yEr+G4x6jzJ7vuxjCbA0Nj2nViKELyvLCrdRAQnOKdqMWYUfnk/RoXB5cW2NhUgR+AZyc7UjgZQS2/VG+LkBgcfUhr5zExH9qZKy3PMxtVLMTlW95UAm4mLrZmOl1Baww2I3prRePcXrCdVz/xyXUk5wI26NeqjajbbRmuDVt85UgNkFPx+oVbhBDRf4BPU6WIateh7M4rbghgXJeRFM5rndqghb0B7oTcBx+qOH5JdRme21hWGJkJiHyzSgaXfhhHb+xlfiRZs/gcK/L09o4au0se5aVqb/eaZogOSpL2Mgj3aM/7ox/a7Zfr1QW/Ihag9SWA6G0TTPVXIqAvk9jL6TlkZZlgUGdUWe+bxlQKhlHpW17rOm92MeQvzPzBgICR8kJnu+pub6xxiZ3K7QyPTbwNhqlxCy4RDIJOXqBvegVGJ3xSuMRWqfvwXY0CZriTshtFENWuo0yb4RTioox+zFm4ecYseQkP117SDrwb33k8JvphGae1hFDSD4qDBOVXcwg19Bl0ZajaeVRpcYS9VGhKUUa0Rp6eBUXTewXEhvejJSpLO90AeJK/9o83C8DSwJPZysktgHufi3klGu7AJzX77J8budIAlPYwmkFGjXgSZc1BNHjfuFrABQ6+fODGjZm5W2fQOo5Lvn56eHp0ivjWG1Bigd7df3dX4sf2VYmCZKFu/ZjRzJQbkIyTpT2rKPkbZaEZnrhkFDfg+jFp6p7dBe2X2M0qk2sg1026UANe0hduY3FYVFlGzObPDqF+zGTKauC2j9IXvuOm0m3aCWWMwo8SGYfOi6CB0D2VQcyFn6HLr8QuWCefFpG5rfYMBPL0do1MfiFG94VtoDZryvyuj4nVZG3IQ0+I+eFC3vVKLpHbAa9KMBqvU48Co2ceo8SLXxPirGQGjw0Y9E3Q1h/MNEL+CpwZnhVzgqJ/RNib5qKCYFF6XRdLxM/rf7CMxqh1ze+DEyB1GmY27xQFFQGu6+tzu7iXRfb06zXUZffIc+OYDGF1tOS1wbkEvD2OUSGoDo/HnttwNRSwSSrG+qaN5DG9KywXb0tt5k9i5xqu3bdK3n8VHY9QYNqdyl1Fm16ow6E10N31cWXk7Fq2XoyYSmDCL+1gtPEhGV6sOeFYQR7Vmh0wPgA9i0dW09tPgzA1spAqciqV5bbchXsyUziH2KdzC3Jzn9azZIB+PUXTJrMEro24xagZZjNyN1bTj4L1CSLQnuk4sSgwj2QNMNCFfzkEWRqFxl1HDWM05ESZPohwyOnBPD2LcyKhmFCuKmCisgLuexOgHHKhOXL+pf+DPzVevVpYeLBQ8IVloeZi472F0WjM6lIQPLaPDcIdRsGFiL3B1eG+a/gnvBk56j2jaKJux+xn5Dd2nYiCj6RtGjYGMwkFxl1EivPXzjPYZkaTbmaPOo8fJ+e2V/DoocIgAsCCpj9HhifiPxqgADbfvY+oTSHH856LDqMRN97JVrUITbhQdKAOH2F09+j6MCuH9tJl5HGf0ktPJ6U6mc6r7AJVCMpncWr4Q1CMh+TwYJSJ74ODGzwnXTS92W6BIbCN7ksaXmYmWWXwKIfcQRk9y78CoPirhLQpXK5elbp7oloTOdDPRM1Pz23lPWSH9HBiFoS1ovehC0JRwTff4dfeFcL+1ALfYRhJyZyq2dcNGvfsujOJ+NSH15tauzh9ubeOkUVL/wP/xQWZ6Js7Uw9/Ssgex4GfAqIUF0UL9LUhEMXXXsSW47os5dAJgzDv+axFiAEUGMXryzoxallQW4wZ4ousXC/mrqwcP8vn8AwA8XF56tTWvUyk6+AdaeDiKUXLrgSTigzDaLUAfm1H9YssAP14nl6Ko/DQUgnEIEexK4JjgF4EycBapFbsOAxl9u1FvQsw0PB6/Cept4RWutq7zxkngT/R7T533sbAQQcRBq8RHhgW/fAhGpcCsCzY1Zlj0PCibN4hRA2PNBO73bkbBhrJxnoXhsciJI9CgRixbL0L5EIw6wxllRm+eBPyQtc0uC1Nb69TuZ7Q7Q2zjNvaWTjphNo9pej8MozhZGFoDciQjGTVIJXBbDmpNp5wCUbAkE18Xo5hP01+lpOP5D2L0MGe+zagfxWgfv0J5S8kbRi1rMKM636bXxkkQJZ0SoB+IUeBLxuscuit2R2VKehi1+Iucq+shIudU2TaoIbXRdHByCWit7nmCfrBRn7jRo6MBw0zMLT3umv/tdXaXUaPjhQmDe3NYswNkKtxE7EPJKI+/IVvoDTbuVqAOZdTYC9CDQlL9OnhQkkL8GeniVDd4xu3uDpyDZXQMy2S/PaO4q6JYfty1Q9vrd6PQDqP/96fll8saYNo8husT4Ov4EIxaoZxbe7B0/vLBwlxc2DMmo9IGi42hOcSbzVOFIrrraKcfCMVmFbTj+Q9idDHnmJpRZxZDrfui0F5GSU8G9HaqGQ8w5Ynl61kl1KP9Gef4paKwdJnJaK8rkyn9vI5VCVpGe/Kj8LLbjNq3s2y9n3v9A/zvufzK5eXmw83LN+drWPQ2JqMEpEG1mziFnHATxQbFRl0w3EFk3ajYO10yIFMCThb6WHBqMMtxs07Mw2MLG90hTFsLcNFsYzW40aMEE6GdSbZu3t7WiMdY/FmccPEyE4/5qcz2eojFAz8l48k+CF031yHap+iEzV1d6soUDAqSD9ewgkyJ5UxcKDGVucIdhIwfSnG4ixQrEnqde5dY0tj5XIm+Aqa84NLAFnnh3IO/by7/cnFx8cvy1mVeWVZ/fclQRi2LN/wIKUy0cu2sge14MSx1Tcxm3seoGVeb5GZxClPa9C4UyGgvo0Rgdtm27kAn8joSw0I6t9RldGr7QlcP5GOeEKUFxcFJlpIysvawNN3JDSa38h6YqrlHyU5lVCZPQR/ShVI3KsOJJ+GFthbLm8/tPNTz2ro3hLSvLh/+svT9r7/+urKwsPlmDbS0NRajBo777FEa65pg9IKQrvrohwJT0c6tRpKDsnmLEFq1MFp1NrjwbMpA1IhuvWTp5LcWWU/eYtTGikUWZ+ztm0ml7txwrB4J4xeb3TE+s3UhcW/ltVKH0Zlk5rwgkQBKbU8WljI6Zp3BbOvSOqcL23F6AGeXJec2vbjEEAyRXClIxcNePdN7Jfp3i8HnF/7rcs1b2bpay29uXVyVzudkf6PY4ZYJNGlqx8GjrShq/xv2O8SMlJOe5b2Z6wF6lDbKaNASWL7+R4VW0bZ7nOF4RBOb93j4WNFrCY+zAdKswWHYgqFfzz/MdOuhph56DIy/vLjsVp3NTM+fX3jo9cM3xriX/76EMSuSWtr8ZWEzLtJBv+tC4FqmuZXpDqMzyUdwoo11AXzYJTCI5Yy1y1ee9+jhxfrFw+31wiY4cP3dDYcySm1C1QbWQ4DmNFutli4UdcDjr9ySc2S0by5UZtsBpq7gn1tdTHVmPO9i1e9hFPdF54W1YVhYgL/55UfbN9mTUh6uXmKVTqZrq6an5jfPH+gqnQvE1X93UoPJ6ZkSVlfE30byfE7gWk+ycNnVF9OZrZXlfH4BMPQaPG7JfGlJeCulhw+33vzkza1cXoSyr0oBPOAhjFpEGa93gMQIC8WamGYGs2SmD/mtytvuzF3ihlHPSB230ppR+ALK1YOjATg4ONqNemXUtpm18KY0Apn5x8npbjXd9PxKgXgwukOrU0k2FZeSdSrJLi+3t7e2k52DneE/HSdZMwvADehaWTjvzPXrOkn0C0bg+wKz1Frp3BMw6ldKV15YeHV50d9vn4D0Y88uzWciCvZu1zrxv/rNtKkLobC0NBE1m+298NYuCHTR0VU6LYj1efdNjUobk9a6OAqc2rRzF65+vus9AaNYW7FWui75vK6uvfk9VoKxkE6X/nFBQuyxHtre2nVF31RfbWNMliYzZh2U6uPLvI0T1xBYscLPl/FpHSHvQW/xqZb/rTkehusw0L2VX2HQv1qXF6WVgtWX7cJsKEkV49pvV8+K9MLKYke+zo3jK1rlBr+90w7WlCTgqVaUXuwwzUBHPl8Ngpaej0q4rVZiIFy3h1Hco8pYy4wuFNdFS1izmPn+qiAkBER6W2WsyMWy6Jmb7yHmcqYzWd0zFZCc/68FT1cC2J4nZSG/Oa+Vgq5kGf7J8G+rwEM2t/T3pcLKrwW58OblxaMSemF9lskGfZkqagkFWxJkrVuTUaGRetJCcdK1ZcDoDox51cdoDtWC23JzZ13ZRcNjZJ8dVYvpphZE1AsJ8xad6OeaPYximEzXMnck7A6mk8nS9z+tE8qlh52bdHVX4cHDUvI6438jXvoAPHHNc/K/8wVPEr3aDhwLxcQ6nPr48bVPO7jyHI9tFjjjdH3l7+dXa8SY+2XpVWmpIJno90cNwlPf+DGC46zRa7mIZxm1U993MRiFUV9u/0FZQt7aQ5vOFou5dOAH6eJXsZ+KG6BiBs1QtfrhxkG7GvgDUCwWoxs9qrD9v5QLf0+OxOPkfGnr1cuFOUHAK4M4Cyvq0SOTcm7h54dbmceAmZnHMbRu1I8wVd1hdCs/B6ZDx3tMF9gbYu7iwfnmVikz+rOTbwrY6sQCRXH5aDm/vLL9ZrkA30l/XQaIrKx9t//s2b4Gv7UmCVwTsE+vX2zs7rZ2dzcW61lDO+G35PgveJ4+vU67IopxC+6QIKRSuMh/MGZ7vSfKLOmtLy+NxM/L+bX1OWy/AO4k+HBeXOeNvqwdr75ZOn/Ug5Xz85cvl/NXV486xSowwEs/F+KV8QIrzm0sowRpL6yv5fMPRn78Tx6W/XOvsPZyZevNm1cPLuZAvu7008M76Voa+E/QW3W7ISZthOTY/SCrqO5FA27Zrfdg3aJIyjvnaj9ed6Ow7tQp9YAv9mScpbQZF8wTd9ATi+oAFRxGQUIGURHFlSJxhYTUASMz7q4QwzcQfG5ZU4oDOzn/6AKpwYplgvvh2bh8FmUAogz77ufHjj6EEiLEHXEwEAH+1wtzHgXbBu80Iscz5Nb7Obl3ySMGAMRm7KY8ufdZVJg6gFIvYkYTmCnpDp2x1lMOKeYY+nLGbLH2faZrzZOX+Tl+rf7IyHO7GHpdv08fCOwGRm/F5p2j11EzrlG5ltFmekPZv12jdNKtBJjXEdMMLm1YWr+/o8anBL1wkvWg98nOKLbJXrvjlTVzZ/w3ZhQXJM09KCVn4nnq6fmH659Th1bslTJiDMaqVT096iZKouM/0rfY6ett0ZkFl8T75eF8Z7I6k3mT9z6bfk1WmK0/fZoahq+//jqVahwe4fq1mFG3ne136n6DqwJDJNZ/eKCBmf3/530+/QRp45uB/if+g5/o+PrpnIM96jWh5a+N33gI4rDwPBsC1jjtJcF1EtZnQyihDd+Mi/u6UtiJjbrhUhzu6yNRlGunOHho77/u+b7L6tVDn494IpBRDLJ6CO3EnT1HdIofUyjVsz0VWpNdeUfBFg2/O6KHAhflp4vFJ4cVhfUE8gOszf8nBm9801WaHcR6tBflavVo8dlrzHXhRBn9AP0j/nlB7OxQQ39j8StZBeGkwLVWBLtRTUb9cBB7nPY9Bm6JGqLZtUKslf6M/O0JJphggnAmsXwAAAAMSURBVAkmmOCLxP8HsH7S4o+Gqj0AAAAASUVORK5CYII=) 
 
 ### 一、索引的原理 
 Mysql我相信大部分人都接触过，但是很多人刚刚开始使用Mysql时，都是随便建表，一堆查询条件瞎搞的。代码日久未生情，却生出了一堆问题，过度使用Mysql与不合理使用索引，往往会导致慢查询等性能问题。 能区分一个低级与高级程序员的关键，就是看他是否能够掌握一门软件的原理，从而合理分析并使用它。
@@ -18,7 +18,7 @@ Mysql我相信大部分人都接触过，但是很多人刚刚开始使用Mysql�
 
 ### 二、聊聊B+树 
 目前大部分数据库系统及文件系统，都是采用B-Tree或其变种B+Tree作为索引结构。下图简单展示了数据库系统的索引结构：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g0z3g9fv5bj20dq05z0t1.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedf3j.jpg)
 
 在B+树的基础上，增加了`顺序访问指针`。那么为什么我们要用这个数据结构呢，为什么不是用红黑树？  
 （1）索引本身也是很大的，需要存在磁盘中，那么我们要做的就是减少磁盘I/O次数；  
@@ -42,12 +42,12 @@ Mysql我相信大部分人都接触过，但是很多人刚刚开始使用Mysql�
 （1）MyISAM索引 
 MyISAM引擎使用B+树作为索引结构，叶节点的data域存放的是`数据记录的地址`，我们称MyISAM的索引方式也叫做`非聚集`(Non-clustered)的。
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g0z4rlukopj20j80e43yy.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/ted4vn.jpg)
 
 （2）InnoDB索引 
 InnoDB的数据文件本身就是索引文件，表数据文件本身就是按B树组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。还有一点很重要，InnoDB的辅助索引data域，存储相应记录`主键的值`，而不是地址。换句话讲，在叶子节点上存储的是主键的值，所以一般最好设置主键为一个整型id比较好，并且这也就代表了用`辅助索引来查询`时，需要先查到主键，再用主键索引查询到值，一共`两次`。
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g0z53lfhr6j20d806n0t5.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedhgs.jpg)
 
 ### 四、索引优化 
 #### （1）聚合索引 
@@ -66,41 +66,41 @@ CREATE TABLE `student` (
 
 可以通过命令来展示表的索引:
 ```show index from student;```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108dch29lj219104dq33.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedoD0.jpg)
 
 其中，cluster_index便是一个`聚合索引`。 
 下面我将用`explain`关键字，结合一个典型的例子来对我们的查询语句进行分析。 
 
 我们使用这个语句尝试一下： 
 ```explain select * from student where grade=3 and name="Tom" and age=10;```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g107z1m6w3j211102rt8m.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedIuq.jpg)
 效果是相同的，从key这列结果可以看到，cluster_index被引用到了,key_len为138，这里我们把where后面的条件位置随意倒换也不会影响查询的效果，因为Mysql帮我们已经做了查询的优化。 
 
 我们把条件列尝试去掉其中一个试试，去掉name：
 ```explain select * from student where grade=3 and age=10;```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1087up8b6j20xp02rdfq.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedHET.jpg)
 cluster_index还是被引用到了，但是key_len变成了4，说明了查询只用到了索引的第一列前缀，和单独以grade为条件的效果是一样的。
 
 去掉age：
 ```explain select * from student where grade=3 and name="Tom";```
 试试like的效果：
 ```explain select * from student where grade=3 and name like "Tom%" ;```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108dy91f2j20z602mjra.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedTbV.jpg)
 两个效果相同，cluster_index还是被引用到了，但是key_len变成了134，说明了查询用到了索引第一、二列前缀。
 
 那么，去掉最左边的grade呢：
 ```explain select * from student where age=10 and name="Tom";```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108l7mxjaj20rw02sq2t.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedbUU.jpg)
 
 GG，由于没有`最左前缀`列被引用到，你可以看到没有索引被引用。最左前缀这个概念就大致是这样了，如果在聚合索引中，sql语句没有引用到最左前缀列，那么这个索引是不会被引用的。
 
 另外要说明的是，对于范围搜索而言，也是一样的：
 ```explain select * from student where grade>3 and name = "Tom";```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108wr8aoyj20xm02sjra.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedOC4.jpg)
 
 缺少最左前缀列时：
 ```explain select * from student where age>3 and name = "Tom";```
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g108x6sy5cj20s602sq2t.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/28/tedq5F.jpg)
 
 
 #### （2）单列索引 
