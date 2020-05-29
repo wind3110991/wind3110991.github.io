@@ -8,19 +8,19 @@ tags:
  - Java
 ---
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1an306m9zj20nw0eg3z5.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLHMQ.jpg)
 
 使用Java快一年时间了，从最早大学时候对Java的憎恶，到逐渐接受，到工作中体会到了Java开发的各种便捷与福利，这确实是一门不错的开发语言。不仅是Intellij开发Java程序的爽快，还有无需手动管理内存的便捷、Maven管理依赖的整洁、SpringCloud(SpringBoot)大礼包的规整等等。  
 
 所以，作为一个有追求的Java程序员，深入底层掌握GC（垃圾回收）的机制，应该算是必备的技能了。本文即我在学习过程中的一些个人观点以及心得，不正之处敬请指正。 
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fb6txhe6j20ci0b5ahi.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLOZn.jpg)
 
 ________
 
 ### 一、 JVM的运行数据区 
 首先我简单来画一张JVM的结构原理图： 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1an2tdm1jj20v50j5wfb.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLXaq.jpg)
 
 我们重点关注JVM在运行时的数据区，你可以看到在程序运行时，大致有5个部分：
 
@@ -44,27 +44,26 @@ pc寄存器用于存放一条指令的地址，每一个线程都有一个PC寄�
 ________
 
 ### 二、初识GC 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8hvn72sj20l90camxj.jpg)
 
-自动垃圾回收机制，简单来说就是寻找Java堆中的无用对象。打个比方：你的房间是JVM的内存，你在房间里生活会制造垃圾和脏乱，而你妈就是GC（听起来有点像骂人）。你妈每时每刻都觉得你房间很脏乱，不时要把你赶出门打扫房间，如果你妈一直在房间打扫，那么这个过程你无法继续在房间打游戏吃泡面。但如果你一直在房间，你的房间早晚要变成一个无法居住的猪窝。
+自动垃圾回收机制，简单来说就是寻找Java堆中的无用对象。打个比方：你的房间是JVM的内存，你在房间里生活会制造垃圾和脏乱，而你妈就是在对你的房间GC。你妈每时每刻都觉得你房间很脏乱，不时要把你赶出门打扫房间，如果你妈一直在房间打扫，那么这个过程你无法继续在房间打游戏吃泡面。但如果你一直在房间，你的房间早晚要变成一个无法居住的猪窝。
 
 那么，怎么样回收垃圾比较好呢？我们大致可以想出下面的思路： 
 
 #### (1) Marking
 首先，所有堆中的对象都会被扫描一遍：我们总得知道哪些是垃圾，哪些是有用的物品吧。因为垃圾实在太多了，所以，你妈会把所有的要扔掉的东西都找出来并打上一个标签，到了时机成熟时回头来一起处理，这样她就能处理你不需要的废物、旧家具，而不是把你喜欢的衣服或者身份证之类的东西扔掉。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fbewd1p2j20n70dv0t8.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLbrj.jpg)
 
 #### (2) Normal Deletion
 垃圾收集器将清除掉标记的对象：你妈已经整理了一部分杂物（或者已全部整理完），然后会将他们直接拎出去倒掉。你很开心房间又可以继续接受蹂躏了。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fat64esyj20k50dpjs4.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLTxg.jpg)
 
 #### (3) Deletion with Compacting
 压缩清除的方法：我们知道，内存有空闲，并不代表着我们就能使用它，例如我们要分配数组这种一段连续空间，假如内存中碎片较多，肯定是行不通的。正如房间可能需要再放一个新的床，但是扔掉旧衣柜后，原来的位置并不能放得下新床，所以需要进行空间压缩，把剩下的家具和物品位置并到一起，这样就能腾出更多的空间啦。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1faw7limbj20k70czdgo.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLqqs.jpg)
 
 有趣的是，`JVM并不是使用类似于objective-c的ARC（Automatic Reference Counting）的方式来引用计数对象`，而是使用了叫`根搜索算法(GC Root)`的方法，基本思想就是选定一些对象作为GC Roots，并组成根对象集合，然后从这些作为GC Roots的对象作为起始点，搜索所走过的`引用链（Reference Chain）`。如果目标对象到GC Roots是连接着的，我们则称该目标对象是可达的，如果目标对象不可达，则说明目标对象是可以被回收的对象。
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1fbdc0qotj20ca0dr7dl.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLxiV.jpg)
 
 GC Root使用的算法是相当复杂的，你不必记住里面的所有细节。但是你要知道的一点就是，可以作为GC Root的对象可以主要分为四种：
 ```
@@ -81,31 +80,31 @@ ________
 ### 三、分代与GC机制
 
 嗯，听起来这样就可以了？但是实际情况下，很不幸，在JVM中绝大部分对象都是英年早逝的，在编码时大部分堆中的内存都是短暂临时分配的，所以无论是效率还是开销方面，按上面那样进行GC往往是无法满足我们需求的。而且，实际上随着分配的对象增多，GC的时间与开销将会放大。所以，`JVM的内存被分为了三个主要部分：新生代，老年代和永久代`。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g9dmmebqj20sg067q4d.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLjI0.jpg)
 
 #### （1）新生代 
 所有新产生的对象全部都在新生代中，`Eden区`保存最新的对象，有两个`Survivor Space`——S1和S0，三个区域的比例大致为8:1:1。当新生代的Eden区满了，将触发一次GC，我们把新生代中的GC称为`minor garbage collections`。minor garbage collections是一种`Stop the world`事件，比如你妈在打扫时，会把你赶出去，而不是你一边扔垃圾她一边打扫。 
 
 我们来看下对象在堆中的分配过程，首先有新的对象进入时，默认放入新生代的Eden区，S区都是默认为空的。下面对象的数字代表经历了多少次GC，也就是对象的`年龄`。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7ddwdj5j20kx0cr0tq.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmLzGT.jpg)
 
 当eden区满了，触发minor garbage collections，这时还有被引用的对象，就会被分配到S0区域，剩下没有被引用的对象就都会被清除。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7ihicrtj20lr0clab2.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOSRU.jpg)
 
 再一次GC时，S0区的部分对象很可能会出现没有引用的，被引用的对象以及S0中的存活对象，会被一起移动到S1中。`eden和S0中的未引用对象会被全部清除`。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g7qy4xbej20l70dsaaz.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOpzF.jpg)
 
 接下来就是无限循环上面的步骤了，当新生代中存活的对象超过了一定的【年龄】，会被分配至老年代的Tenured区中。这个年龄可以通过参数MaxTenuringThreshold设定，默认值为15，图中的例子为8次。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1h4oboj5wj20nq0gt3z0.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOPsJ.jpg)
 
 新生代管理内存采用的算法为`GC复制算法(Copying GC)`，也叫`标记-复制`法，原理是把内存分为两个空间:一个From空间，一个To空间，对象一开始只在From空间分配，To空间是空闲的。GC时把存活的对象从From空间复制粘贴到To空间，之后把To空间变成新的From空间，原来的From空间变成To空间。 
 
 首先标记不可达对象：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8z5u4u6j20ob0a2q2u.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOCM4.jpg)
 然后移动存活的对象到to区，并保证他们在内存中连续：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8zdviv5j20o60a2dft.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOiL9.jpg)
 清扫垃圾：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8zit8l4j20ob09yt8o.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOkZR.jpg)
 
 可以看到上图操作后内存几乎都是连续的，所以它的效率是非常高的，但是相对的吞吐量会较大。并且，把内存一分为二，占用了将近一半的可用内存。用一段伪代码来实现大致为下：
 
@@ -126,10 +125,10 @@ void copying(){
 老年代管理内存最早采用的算法为`标记-清理`算法，这个算法很好理解，结合GC Root的定义，我们会把所有`不可达`的对象全部标记进行清除。 
 
 在清除前，黄色的为不可达对象：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8k87w6kj20fp0ac3yp.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOAd1.jpg)
 
 在清除后，全部都变成可达对象：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1g8mw73yfj20fr0ab745.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOEIx.jpg)
 
 那么，这个算法的劣势很好理解：对，会在标记清除的过程中产生大量的内存碎片，Java在分配内存时通常是按连续内存分配，这样我们会浪费很多内存。所以，现在的JVM GC在老年代都是使用`标记-压缩清除`方法，将上图在清除后的内存进行整理和压缩，以保证内存连续，虽然这个算法的效率是三种算法里最低的。 
 
@@ -152,7 +151,6 @@ void copying(){
 ```
 
 所以针对不同的GC收集器，我们要对应我们的应用场景来进行选择和调优，回顾GC的历史，主要有4种GC收集器:`Serial、Parallel、CMS和G1`。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1ga017vrbj20sg0lc0uj.jpg)
 
 #### （1）Serial 
 Serial收集器使用了`标记-复制`的算法，可以用`-XX:+UseSerialGC`使用单线程的串行收集器。但是在GC进行时，程序会进入长时间的暂停时间，一般不太建议使用。
@@ -173,7 +171,7 @@ CMS使用了`标记-清除`的算法，当应用尤其重视服务器的响应�
 G1提供了两种GC模式，`Young GC`和`Mixed GC`，两种都是Stop The World(STW)的。Young GC主要是对Eden区进行GC，Mix GC不仅进行正常的新生代垃圾收集，同时也回收部分后台扫描线程标记的老年代分区。 
 
 另外有趣的一点，G1将新生代、老年代的物理空间划分取消了，而是将堆划分为若干个区域（region），每个大小都为2的倍数且大小全部一致，最多有2000个。除此之外，G1专门划分了一个Humongous区，它用来专门存放超过一个region 50%大小的巨型对象。在正常的处理过程中，对象从一个区域复制到另外一个区域，同时也完成了堆的压缩。
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1g1gb7ey6psj20ix07smzv.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmOZi6.jpg)
 
 
 #### （5）常用参数
