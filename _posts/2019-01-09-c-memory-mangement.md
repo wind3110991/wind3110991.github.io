@@ -13,7 +13,8 @@ tags:
 之前看了一篇对c/c++内存管理描述的[很不错的文章][1]，后来想来，自己也其实在这方面研究尚浅，故在此回味一下。  
 
 我们先用一张图来归纳c语言的内存模型：
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprj4e66sj20er0cat9l.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjE8K.jpg)
+
 
 _____
 
@@ -25,7 +26,7 @@ _____
 #### （1）栈（stack）
 什么是栈，它是你的电脑内存的一个特别区域，它用来存储被每一个function（包括main（）方法）创建的临时变量。栈是FILO，就是先进后出原则的结构体。它密切的被CPU管理和充分利用。当一个function退出时，所有它的变量都会从栈中弹出，以后都会永远消失。
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprlt1ajzj20et0ajwf6.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjAC6.jpg)
 <center><small align="center"> (我很喜欢用上手枪弹夹的方式来描述这个概念)</small></center>
 <br/>
 
@@ -135,7 +136,7 @@ BSS是`Block Started by Symbol`的简称，通常是指用来存放程序中未�
 #### （9）Heap的内存模型
 一般来说，malloc所申请的内存主要`从heap区域`分配的。
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprp9ukjsj20fg04jdg9.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjF4x.jpg)
 <center><small align="center"> (Heap的基本构成)</small ></center>
 <br/>
 
@@ -226,7 +227,7 @@ _____________
         return 0;
     }
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzpruuetbpj20ep06cq4z.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjZvD.jpg)
 
 
 #### (2) 数组中的元素按照存放顺序依次从低地址到高地址存放，但是每个元素中的内容又是`按高地址向低地址`方向存储：
@@ -238,7 +239,7 @@ _____________
         return 0;
     }
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvfkbsoj20h608xq6d.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjmKe.jpg)
 
 
 #### (3) 数组在使用过程中遇到的最多的问题可能就是下标越界
@@ -254,7 +255,7 @@ _____________
         return 0;
     }
 
-![Thumper](http://ww1.sinaimg.cn/large/afce444dgy1fzprvq5h2wj20gw08otbq.jpg)
+![Thumper](https://s1.ax1x.com/2020/05/29/tmjnDH.jpg)
 
 
 结合下标越界示意图看上面的的代码会发现，由于越界设置charsTwo[3]元素的值，导致变相更改了charsOne[0]的值。
