@@ -151,6 +151,8 @@ void copying(){
 ```
 
 所以针对不同的GC收集器，我们要对应我们的应用场景来进行选择和调优，回顾GC的历史，主要有4种GC收集器:`Serial、Parallel、CMS和G1`。
+![Thumper](https://cdn.nlark.com/yuque/0/2019/jpeg/295504/1553652649859-52e9f1bd-12be-4901-bc2f-35015f6f1865.jpeg)
+
 
 #### （1）Serial 
 Serial收集器使用了`标记-复制`的算法，可以用`-XX:+UseSerialGC`使用单线程的串行收集器。但是在GC进行时，程序会进入长时间的暂停时间，一般不太建议使用。
